@@ -1,0 +1,45 @@
+// FizzBuzz: every arm is reachable.
+fizz(positional n: int) =
+  if n mod 15 == 0 { "FizzBuzz" }
+  else if n mod 3 == 0 { "Fizz" }
+  else if n mod 5 == 0 { "Buzz" }
+  else { "other" };
+
+// Leap years: the four-way Gregorian rule.
+leap(positional y: int) =
+  if y mod 400 == 0 { true }
+  else if y mod 100 == 0 { false }
+  else if y mod 4 == 0 { true }
+  else { false };
+
+// An inner guard that contradicts the one around it.
+classify(positional x: int) =
+  if x > 5 { if x < 3 { "impossible" } else { "big" } } else { "small" };
+
+// Twice an integer is never 7: dead by exact inversion of `* 2`.
+half(positional x: int) = if x * 2 == 7 { "seven is even?" } else { "fine" };
+
+// A contradiction between two inputs, which no box of intervals alone can see.
+order(positional a: int, positional b: int) =
+  if a > b { if b > a { "both bigger" } else { "a bigger" } }
+  else if a == b { "equal" } else { "b bigger" };
+
+// Through a helper: clamp keeps x in 0..=10, so "over" is dead.
+clamp(positional x: int) = if x < 0 { 0 } else if x > 10 { 10 } else { x };
+zone(positional x: int) =
+  if clamp(x) > 10 { "over" }
+  else if clamp(x) == 10 { "top" }
+  else if clamp(x) == 0 { "floor" }
+  else { "middle" };
+
+// A business rule: a shipping fee in cents, by weight in grams and distance in km.
+shipping(positional grams: int, positional km: int) =
+  if grams <= 0 || km <= 0 { 0 }
+  else if grams > 30000 { -1 }
+  else if km > 500 && grams > 5000 { 4000 + grams div 10 }
+  else if km > 500 { 2500 }
+  else { 900 + grams div 100 };
+
+// Nonlinear: no integer squares to 2; exactly one integer has x³ - x = 24.
+root2(positional x: int) = if x * x == 2 { "root two" } else { "no" };
+cubic(positional x: int) = if x * x * x - x == 24 { "found" } else { "no" };

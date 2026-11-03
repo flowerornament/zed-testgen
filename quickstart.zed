@@ -1,0 +1,12 @@
+// Two small functions for the README's quickstart.
+
+// Every arm of FizzBuzz is reachable.
+fizz(positional n: int) =
+  if n mod 15 == 0 { "FizzBuzz" }
+  else if n mod 3 == 0 { "Fizz" }
+  else if n mod 5 == 0 { "Buzz" }
+  else { n };
+
+// The inner guard contradicts the outer one, so "impossible" can never be returned.
+classify(positional x: int) =
+  if x > 5 { if x < 3 { "impossible" } else { "big" } } else { "small" };

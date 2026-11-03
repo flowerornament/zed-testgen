@@ -1,0 +1,13 @@
+[package]
+name = "zed-testgen"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+# Pinned to the Zed commit the tool was built and checked against. The solver modules it
+# calls (`zedc::store::preimage`) are internal to Zed and may change at a later commit.
+[dependencies]
+zedc = { git = "https://github.com/zedlanguage/zed", rev = "a3c52bf6c6d03f51bef01c6fea8f518dd3c6b570" }
+zed-kernel = { git = "https://github.com/zedlanguage/zed", rev = "a3c52bf6c6d03f51bef01c6fea8f518dd3c6b570" }
