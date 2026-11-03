@@ -158,3 +158,7 @@ Two behaviours of Zed that the tool surfaced, both documented upstream:
 
 - A failure inside an equality test is compared, not propagated: `0 mod 0 == 0` is `false`, so `if n mod d == 0 { … } else { … }` takes `else` when `d` is 0.
 - `div` and `mod` are Euclidean, so a decimal formatter built on them is wrong for negative numbers unless it handles the sign.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
